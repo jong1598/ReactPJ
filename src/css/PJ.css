@@ -1,0 +1,110 @@
+.loading_background {
+  background: #fff;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0.85;
+}
+
+.pj {
+  position: relative;
+  height: 100vh;
+  letter-spacing: -.5px;
+  background: #fff;
+}
+
+.pj .login_banner {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.pj .login_banner .login_logo {
+  display: inline-block;
+  background-position: 0 -30px;
+  background-image: url("../source/login_banner.png");
+  width: 400px;
+  height: 85px;
+  margin-top: 100px;
+  background-size: 400px 140px;
+}
+
+.pj .login_container .login_range {
+  box-sizing: border-box;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.pj .menu {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.pj .menu .menu_item {
+  position: relative;
+  display: table-cell;
+  vertical-align: top;
+  border: 1px solid #e3e3e3;
+}
+
+.pj .menu .menu_item:not(:first-of-type) {
+  border-left: 0px;
+}
+.pj .menu .menu_item.now{
+  border-bottom: 0px;
+}
+
+.pj .menu .menu_item_tag {
+  display: block;
+  position: relative;
+  height: 60px;
+  padding-top: 17px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  text-decoration-line: none;
+}
+
+
+.pj .menu .menu_item_text {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -.5px;
+  color: #777;
+}
+
+.pj .menu .menu_item.now .menu_item_tag {
+  background-color: #fff;
+}
+
+.pj .menu .menu_item.now .menu_item_text {
+  color: #333;
+}
+.pj .panel {
+  position: relative;
+  border: 1px solid #e3e3e3;
+  border-top: 0px;
+}
+.pj .panel .panel_inner {
+  padding: 20px;
+  min-height: 300px;
+}
+
+.blind {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
