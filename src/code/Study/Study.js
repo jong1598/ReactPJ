@@ -4,7 +4,7 @@ import Header from '../common/components/Header';
 import { IsNullOrEmpty } from '../common/function/DataUtill';
 
 
-function Main() {
+function Study() {
 
   const location = useLocation();
   const [login_info, setLoginInfo] = useState({})
@@ -19,11 +19,11 @@ function Main() {
   return (
     <div className="pj">
       <Header
-        target={'main'}
+        target={'study'}
         login_info={login_info}
       />
     </div>
   );
 }
 
-export default Main;
+export default Study;

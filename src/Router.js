@@ -9,6 +9,10 @@ import Loading from './code/common/components/Loading';
 function Router() {
     const Main = lazy(() => import('./code/Main/Main'))
     const Login = lazy(() => import('./code/Login/Login'))
+    const Portfolio = lazy(() => import('./code/Portfolio/Portfolio'))
+    const Project = lazy(() => import('./code/Project/Project'))
+    const Study = lazy(() => import('./code/Study/Study'))
+    const Intro = lazy(() => import('./code/Intro/Intro'))
 
     return (
         <BrowserRouter>
@@ -16,6 +20,10 @@ function Router() {
                 <Routes>
                     <Route path='/' element={<Main />} />
                     <Route path='/login' element={<Login />} />
+                    <Route path='/portfolio' element={<Portfolio />} />
+                    <Route path='/project' element={<Project />} />
+                    <Route path='/study' element={<Study />} />
+                    <Route path='/intro' element={<Intro />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

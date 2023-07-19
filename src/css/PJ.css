@@ -17,7 +17,6 @@
   height: 100vh;
   letter-spacing: -.5px;
   background: #fff;
-  top: -16px;
 }
 
 .pj .login_banner {
@@ -205,7 +204,7 @@
   align-items: center;
   width: 100%;
   max-width: 1000px;
-  padding: 20px 16px;
+  padding: 10px 16px;
 }
 
 .pj .header .header_box .header_img_box{
@@ -230,11 +229,34 @@
   position: relative;
   cursor: pointer;
   list-style: none;
+  padding: 5px;
 }
 
+.pj .header .header_box .header_ul .header_li::after{
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  content: "";
+}
 
-.pj .header .header_box .header_ul .header_li{
+.pj .header .header_box .header_ul .header_li:hover{
+  background-image: repeating-radial-gradient(#89d0e4, rgb(216 253 147 / 0));
+}
+
+.pj .header .header_box .header_ul .header_li.now::after{
+  background-image: repeating-radial-gradient(#89d0e4, rgb(216 253 147 / 0));
+}
+
+.pj .header .header_box .header_ul .header_li .header_li_text{
+  vertical-align: sub;
+}
+
+.pj .header .header_box .header_login{
   position: relative;
   cursor: pointer;
   list-style: none;
+  padding: 5px;
 }
