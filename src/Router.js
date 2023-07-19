@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Loading from './code/common/components/Loading';
 
 function Router() {
-    const Main = lazy(() => import('./code/Main'))
+    const Main = lazy(() => import('./code/Main/Main'))
     const Login = lazy(() => import('./code/Login/Login'))
 
     return (

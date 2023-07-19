@@ -11,11 +11,13 @@
   opacity: 0.85;
 }
 
+
 .pj {
   position: relative;
   height: 100vh;
   letter-spacing: -.5px;
   background: #fff;
+  top: -16px;
 }
 
 .pj .login_banner {
@@ -107,4 +109,132 @@
   width: 0px;
   height: 0px;
   overflow: hidden;
+}
+
+.login_id {
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.login_id .input_box {
+  margin-top: 10px;
+}
+
+.input {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none !important;
+  border: 1px solid #000;
+}
+
+.input_box.error .input {
+  border: 1px solid #f00;
+}
+
+.input_box.error .input:focus {
+  border: 1px solid #f00;
+}
+
+
+.input_error_hint {
+  display: none;
+}
+
+.input_box.error .input_error_hint {
+  display: block;
+  float: left;
+  font-size: 11px;
+  letter-spacing: -.28px;
+  margin: 3px 0px 3px 5px;
+  color: #f00;
+}
+
+
+.login_id .btn_box {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 25px;
+  padding: 8px;
+  border: 1px solid #89d0e4;
+  background-color: #89d0e4;
+  border-radius: 5px;
+  color: #fff;
+  letter-spacing: -.32px;
+  font-size: 16px;
+  font-weight: 700;
+  appearance: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #5fb5cd;
+}
+
+.login_id .btn_box .btn {
+  box-sizing: initial;
+}
+
+.pj .header {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 1px 1px 10px 1px grey;
+}
+
+.pj .header .header_box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px 16px;
+}
+
+.pj .header .header_box .header_img_box{
+  cursor: pointer;
+  display: inline-block;
+  background-position: 0 -10px;
+  background-image: url("../source/login_banner.png");
+  width: 200px;
+  height: 30px;
+  background-size: 200px 50px;
+}
+
+.pj .header .header_box .header_ul{
+  display: flex;
+  gap: 5em;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.pj .header .header_box .header_ul .header_li{
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+}
+
+
+.pj .header .header_box .header_ul .header_li{
+  position: relative;
+  cursor: pointer;
+  list-style: none;
 }
