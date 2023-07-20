@@ -1,7 +1,26 @@
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IsNullOrEmpty } from '../function/DataUtill';
+import user_default from '../../../source/user_default.png'
 
 function Header(props) {
+    const detailRef = useRef()
+    const [isOpen_Detail, setIsOpenDetail] = useState(false)
     const navigate = useNavigate();
+
+    const handleClickOutside = ({ target }) => {
+        if (!IsNullOrEmpty(detailRef.current) && !detailRef.current.contains(target)) {
+            setIsOpenDetail(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside)
+        return () => {
+            document.removeEventListener("click", handleClickOutside)
+        }
+    }, []);
+
 
     let target = props.target
     let login_info = props.login_info
@@ -19,6 +38,8 @@ function Header(props) {
             navigate('/intro', { state: { login_info } })
         } else if (gubun === 'main') {
             navigate('/', { state: { login_info } })
+        } else if(gubun === 'detail'){
+            setIsOpenDetail(true)
         }
     }
 
@@ -51,11 +72,25 @@ function Header(props) {
                     </li>
                 </ul>
                 <ul>
-                    <li className={`header_login`}
-                        onClick={() => { onClickEvent('login') }}
-                    >
-                        로그인
-                    </li>
+                    {
+                        !IsNullOrEmpty(login_info) ?
+                            <li className={`header_user${isOpen_Detail ? ' open' : ''}`}
+                                onClick={() => { onClickEvent('detail') }}
+                                ref={detailRef}
+                            >
+                                <img className='header_user_profile' src={!IsNullOrEmpty(login_info['profile']) ? login_info['profile'] : user_default} alt="이미지" />
+                                <span  className='header_user_name'>{`${login_info['name']} ${login_info['rank']}`}</span>
+                                <div className='header_user_detail' >
+                                    <div>test</div>
+                                </div>
+                            </li>
+                            :
+                            <li className={`header_login`}
+                                onClick={() => { onClickEvent('login') }}
+                            >
+                                로그인
+                            </li>
+                    }
                 </ul>
             </div>
         </div>
