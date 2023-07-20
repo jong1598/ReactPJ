@@ -257,9 +257,10 @@
   position: relative;
   cursor: pointer;
   list-style: none;
-  color: #fff;
-  background-color: rgb(71 71 70 / 1);
+  color: #29373abf;
+  background-image: repeating-radial-gradient(#89d0e4, rgba(222 255 255));
   padding: 8px 15px 8px 15px;
+  font-size: 14px;
   border-radius: 9999px;
 }
 
@@ -271,6 +272,7 @@
   list-style: none;
   padding: 5px 10px 5px 10px;
   border-radius: 900px;
+  color: #29373abf;
   background-image: repeating-radial-gradient(#89d0e4, rgba(222 255 255));
 }
 
@@ -280,7 +282,6 @@
 }
 
 .pj .header .header_box .header_user .header_user_name{
-  padding-left: 5px;
   font-size: 14px;
 }
 
