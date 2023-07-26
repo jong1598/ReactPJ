@@ -4,6 +4,7 @@ import { useCookies } from 'react-cookie';
 import { callAPI } from '../common/function/API'
 import { IsNullOrEmpty } from '../common/function/DataUtill'
 import NaverLogin from './NaverLogin';
+import KakaoLogin from './KakaoLogin'
 
 function Container() {
 
@@ -120,8 +121,12 @@ function Container() {
                                 </button>
                             </div>
                         </div>
-                        <div className='login_simple' style={{ display: gb_login === 'Simple' ? '' : 'none' }}>
+                        <div className='login_simple' style={{ display: gb_login === 'Simple' ? '' : 'none', marginTop:'70px' }}>
                             <NaverLogin
+                                loginOper={loginOper}
+                            />
+
+                            <KakaoLogin
                                 loginOper={loginOper}
                             />
                         </div>

@@ -99,10 +99,10 @@ function Header(props) {
                                         >
                                             <img className='img_logout' src={logout_png} alt="" />
                                         </button>
-                                        <span style={{ display: 'grid', width: '100%', fontWeight: 'bold' }}>{`${login_info['name']} ${login_info['rank']}`}</span>
                                     </div>
                                     <div className='detail_bottom'>
-
+                                        <img className='profile_image' src={!IsNullOrEmpty(login_info['profile_image']) ? login_info['profile_image'] : user_default} alt="이미지" />
+                                        <span className='profile_name' >{`${login_info['name']} ${login_info['rank']}`}</span>
                                     </div>
                                 </div>
                             </li>

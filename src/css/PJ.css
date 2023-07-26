@@ -285,6 +285,7 @@
 
 .pj .header .header_box .header_user .header_user_profile {
   width: 25px;
+  height: 25px;
   border-radius: 500px;
 }
 
@@ -320,8 +321,20 @@
   width: 100%;
   font-size: 14px;
 }
-
-
+.pj .header_user_detail .detail_bottom .profile_image {
+  position: relative ;
+  height:100px ;
+  width: 100px ;
+  top: -50px;
+  border-radius: 500px;
+  background-color: #fff;
+}
+.pj .header_user_detail .detail_bottom .profile_name {
+  position: relative ;
+  display: block;
+  top: -50px;
+  font-weight: bold;
+}
 
 .pj .header_user_detail .btn_logout {
   width: 20px;
