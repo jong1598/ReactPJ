@@ -25,7 +25,7 @@ export const callAPI = (method, url, parameter = {}, token) => {
             let result = table_data.filter(data => data.id === login_id && data.pwd === login_pwd);
             if (result.length > 0) {
                 api_response['result_code'] = 200
-                api_response['result_data'] = { token, ...result[0] }
+                api_response['result_data'] = { token: check_token, ...result[0] }
             } else {
                 api_response['result_code'] = 401
                 api_response['result_data'] = '아이디 또는 비밀번호가 올바르지 않습니다.'

@@ -5,6 +5,7 @@ import './css/App.css';
 import './css/PJ.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Loading from './code/common/components/Loading';
+import SimpleLoading from './code/Login/SimpleLoading';
 
 function Router() {
     const Main = lazy(() => import('./code/Main/Main'))
@@ -20,6 +21,7 @@ function Router() {
                 <Routes>
                     <Route path='/' element={<Main />} />
                     <Route path='/login' element={<Login />} />
+                    <Route path='/login/simple_loading' element={<SimpleLoading />} />
                     <Route path='/portfolio' element={<Portfolio />} />
                     <Route path='/project' element={<Project />} />
                     <Route path='/study' element={<Study />} />

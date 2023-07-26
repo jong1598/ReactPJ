@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { callAPI } from '../common/function/API'
 import { IsNullOrEmpty } from '../common/function/DataUtill'
+import NaverLogin from './NaverLogin';
 
 function Container() {
 
@@ -22,6 +23,13 @@ function Container() {
         if (type === 'tag') {
             setLoginGb(value)
         }
+    }
+
+    const loginOper = (login_data) => {
+        const expires = new Date();
+        expires.setHours(expires.getHours() + 3)
+        setCookie('Auth_Token', login_data['token'], { expires })
+        navigate('/', { state: { login_info: login_data } })
     }
 
     //로그인 작업
@@ -46,11 +54,8 @@ function Container() {
             setLoginErrorMsg(login_response.result_data)
             return
         }
-        const expires = new Date();
-        expires.setHours(expires.getHours() + 3)
-        setCookie('Auth_Token', login_response.result_data['token'], { expires })
-        navigate('/', { state: { login_info: login_response.result_data } })
 
+        loginOper(login_response.result_data)
     }
 
     const onChangeInput = (gubun) => {
@@ -77,14 +82,14 @@ function Container() {
             <div className="login_range">
                 <ul className="menu">
                     <li className={`menu_item${gb_login === 'ID' ? ' now' : ''}`}>
-                        <a href="#gb=ID" className="menu_item_tag" onClick={() => { onClickEvent('tag', 'ID') }}>
+                        <a href="#" className="menu_item_tag" onClick={() => { onClickEvent('tag', 'ID') }}>
                             <span className="menu_item_text">
                                 ID 로그인
                             </span>
                         </a>
                     </li>
                     <li className={`menu_item${gb_login === 'Simple' ? ' now' : ''}`}>
-                        <a href="#gb=SP" className="menu_item_tag" onClick={() => { onClickEvent('tag', 'Simple') }}>
+                        <a href="#" className="menu_item_tag" onClick={() => { onClickEvent('tag', 'Simple') }}>
                             <span className="menu_item_text">
                                 간편 로그인
                             </span>
@@ -116,7 +121,9 @@ function Container() {
                             </div>
                         </div>
                         <div className='login_simple' style={{ display: gb_login === 'Simple' ? '' : 'none' }}>
-                            간편로그인으로
+                            <NaverLogin
+                                loginOper={loginOper}
+                            />
                         </div>
                     </div>
                 </div>

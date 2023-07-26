@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import Header from '../common/components/Header';
 import { IsNullOrEmpty } from '../common/function/DataUtill';
+import { useCookies } from 'react-cookie';
 
 
 function Portfolio() {
 
   const location = useLocation();
-  const [login_info, setLoginInfo] = useState({})
+  let [login_info, setLoginInfo] = useState({})
+  const [cookies] = useCookies();
 
   useEffect(() => {
     if(!IsNullOrEmpty(location.state) && Object.keys(location.state).includes('login_info')){
@@ -16,11 +18,18 @@ function Portfolio() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const logoutOper = () => { setLoginInfo({}) }
+
+  if(IsNullOrEmpty(cookies.Auth_Token)){
+    login_info = {}
+  }
+  
   return (
     <div className="pj">
       <Header
         target={'portfolio'}
         login_info={login_info}
+        logoutOper={logoutOper}
       />
     </div>
   );

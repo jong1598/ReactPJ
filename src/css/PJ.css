@@ -61,7 +61,8 @@
 .pj .menu .menu_item:not(:first-of-type) {
   border-left: 0px;
 }
-.pj .menu .menu_item.now{
+
+.pj .menu .menu_item.now {
   border-bottom: 0px;
 }
 
@@ -93,11 +94,13 @@
 .pj .menu .menu_item.now .menu_item_text {
   color: #333;
 }
+
 .pj .panel {
   position: relative;
   border: 1px solid #e3e3e3;
   border-top: 0px;
 }
+
 .pj .panel .panel_inner {
   padding: 20px;
   min-height: 300px;
@@ -198,7 +201,7 @@
   box-shadow: 1px 1px 10px 1px grey;
 }
 
-.pj .header .header_box{
+.pj .header .header_box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -206,7 +209,7 @@
   max-width: 1000px;
 }
 
-.pj .header .header_box .header_img_box{
+.pj .header .header_box .header_img_box {
   cursor: pointer;
   display: inline-block;
   background-position: 0 -10px;
@@ -216,7 +219,7 @@
   background-size: 200px 50px;
 }
 
-.pj .header .header_box .header_ul{
+.pj .header .header_box .header_ul {
   display: flex;
   gap: 5em;
   font-weight: 600;
@@ -224,14 +227,14 @@
   padding: 0px;
 }
 
-.pj .header .header_box .header_ul .header_li{
+.pj .header .header_box .header_ul .header_li {
   position: relative;
   cursor: pointer;
   list-style: none;
   padding: 5px;
 }
 
-.pj .header .header_box .header_ul .header_li::after{
+.pj .header .header_box .header_ul .header_li::after {
   position: absolute;
   left: 0px;
   top: 2px;
@@ -241,30 +244,32 @@
   content: "";
 }
 
-.pj .header .header_box .header_ul .header_li:hover{
+.pj .header .header_box .header_ul .header_li:hover {
   background-image: repeating-radial-gradient(#89d0e4, rgb(216 253 147 / 0));
 }
 
-.pj .header .header_box .header_ul .header_li.now::after{
+.pj .header .header_box .header_ul .header_li.now::after {
   background-image: repeating-radial-gradient(#89d0e4, rgb(216 253 147 / 0));
 }
 
-.pj .header .header_box .header_ul .header_li .header_li_text{
+.pj .header .header_box .header_ul .header_li .header_li_text {
   vertical-align: sub;
 }
 
-.pj .header .header_box .header_login{
+.pj .header .header_box .header_login {
   position: relative;
   cursor: pointer;
   list-style: none;
   color: #29373abf;
   background-image: repeating-radial-gradient(#89d0e4, rgba(222 255 255));
-  padding: 8px 15px 8px 15px;
+  padding: 5px 10px 5px 10px;
   font-size: 14px;
   border-radius: 9999px;
+  min-width: 100px;
+  justify-content: center;
 }
 
-.pj .header .header_box .header_user{
+.pj .header .header_box .header_user {
   position: relative;
   display: flex;
   align-items: center;
@@ -274,44 +279,80 @@
   border-radius: 900px;
   color: #29373abf;
   background-image: repeating-radial-gradient(#89d0e4, rgba(222 255 255));
+  min-width: 100px;
+  justify-content: center;
 }
 
-.pj .header .header_box .header_user .header_user_profile{
+.pj .header .header_box .header_user .header_user_profile {
   width: 25px;
   border-radius: 500px;
 }
 
-.pj .header .header_box .header_user .header_user_name{
+.pj .header .header_box .header_user .header_user_name {
   font-size: 14px;
+  padding-left: 5px;
 }
 
-.pj .header .header_box .header_user .header_user_detail{
+.pj .header .header_box .header_user .header_user_detail {
   display: none;
   position: absolute;
-  cursor:default;
+  cursor: default;
   top: 45px;
-  width: 300px;
-  height: 150px;
+  width: 200px;
+  height: 250px;
   background-color: #fff;
   border: 1px solid #c9cac9;
   z-index: 100;
   box-shadow: 1px 1px 3px 1px grey;
+  border-radius: 20px;
+}
+
+.pj .header_user_detail .detail_top {
+  position: relative;
+  height: 41%;
+  width: 100%;
+  background-image: repeating-radial-gradient(#89d0e4, rgba(222 255 255));
+  border-radius: 18px 18px 0px 0px;
+}
+
+.pj .header_user_detail .detail_bottom {
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
 }
 
 
-.pj .header .header_box .header_user .header_user_detail::before{
+
+.pj .header_user_detail .btn_logout {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  border: 0px;
+  background: none;
+  cursor: pointer;
+  float: right;
+  margin: 10px;
+}
+
+.pj .btn_logout .img_logout {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.pj .header .header_box .header_user .header_user_detail::before {
   position: absolute;
   content: '';
   width: 8px;
   height: 8px;
   transform: rotate(45deg);
-  background-color: #fff;
-  left: 10px;
+  background-color: #cdf2fc;
+  left: 65px;
   bottom: 100%;
   margin-bottom: -5px;
   box-shadow: -2px -2px 0 0 #c9cac9;
 }
 
-.pj .header .header_box .header_user.open .header_user_detail{
-  display: block!important;
+.pj .header .header_box .header_user.open .header_user_detail {
+  display: block !important;
 }

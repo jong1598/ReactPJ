@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IsNullOrEmpty } from '../function/DataUtill';
 import user_default from '../../../source/user_default.png'
+import logout_png from '../../../source/logout.png'
+import { useCookies } from 'react-cookie';
 
 function Header(props) {
     const detailRef = useRef()
     const [isOpen_Detail, setIsOpenDetail] = useState(false)
     const navigate = useNavigate();
+    const [cookies, setCookie, removeCookie] = useCookies();
 
     const handleClickOutside = ({ target }) => {
         if (!IsNullOrEmpty(detailRef.current) && !detailRef.current.contains(target)) {
@@ -38,8 +41,12 @@ function Header(props) {
             navigate('/intro', { state: { login_info } })
         } else if (gubun === 'main') {
             navigate('/', { state: { login_info } })
-        } else if(gubun === 'detail'){
-            setIsOpenDetail(true)
+        } else if (gubun === 'detail') {
+            if (isOpen_Detail === true) {
+                setIsOpenDetail(false)
+            } else {
+                setIsOpenDetail(true)
+            }
         }
     }
 
@@ -78,10 +85,25 @@ function Header(props) {
                                 onClick={() => { onClickEvent('detail') }}
                                 ref={detailRef}
                             >
-                                <img className='header_user_profile' src={!IsNullOrEmpty(login_info['profile']) ? login_info['profile'] : user_default} alt="이미지" />
-                                <span  className='header_user_name'>{`${login_info['name']} ${login_info['rank']}`}</span>
-                                <div className='header_user_detail' >
-                                    <div>test</div>
+                                <img className='header_user_profile' src={!IsNullOrEmpty(login_info['profile_image']) ? login_info['profile_image'] : user_default} alt="이미지" />
+                                <span className='header_user_name'>{`${login_info['name']}`}</span>
+                                <div className='header_user_detail'
+                                    onClick={(event) => { event.stopPropagation() }}
+                                >
+                                    <div className='detail_top'>
+                                        <button className='btn_logout'
+                                            onClick={() => {
+                                                removeCookie('Auth_Token')
+                                                props.logoutOper()
+                                            }}
+                                        >
+                                            <img className='img_logout' src={logout_png} alt="" />
+                                        </button>
+                                        <span style={{ display: 'grid', width: '100%', fontWeight: 'bold' }}>{`${login_info['name']} ${login_info['rank']}`}</span>
+                                    </div>
+                                    <div className='detail_bottom'>
+
+                                    </div>
                                 </div>
                             </li>
                             :
